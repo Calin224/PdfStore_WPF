@@ -220,4 +220,10 @@ public partial class MainWindow : Window
             MessageBox.Show($"Error opening PDF: {ex.Message}");
         }
     }
+
+    private void ViewAllItems_Click(object sender, RoutedEventArgs e)
+    {
+        var pdfs = _context.Pdfs.ToList();
+        PdfListView.ItemsSource = pdfs;
+    }
 }

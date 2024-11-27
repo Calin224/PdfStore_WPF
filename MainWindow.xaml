@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:StudyStash"
         mc:Ignorable="d"
-        Title="MainWindow" Height="500" Width="1280" Background="#FF429C9A">
+        Title="MainWindow" Height="1000" Width="1280" Background="#FF429C9A">
     
     <Grid>
         
@@ -17,42 +17,47 @@
         <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" />
 
         <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="10">
-            <!-- <Button Content="Go to second page" Click="GoToSecondPageButton_Click" /> -->
 
-            <Button Margin="5" Padding="10" FontFamily="Cascadia Mono" Background="White" Opacity="0.99" 
+            <Button Margin="5" Padding="10" FontFamily="Cascadia Mono" Background="AliceBlue" Opacity="0.99" 
                     BorderBrush="#00000000" Width="195" Click="UploadPdf_Click" Content="Upload">
             </Button>
 
             <Button Click="AddImages_Click" Content="Add images" Margin="5" Background="AliceBlue" Padding="20"></Button>
 
-            <!-- <Button Click="GoToSecondPageButton_Click" Content="Go to second Page"></Button> -->
+            <ComboBox x:Name="CategoryComboBox" Background="AliceBlue" Width="314" Margin="5" BorderBrush="#00000000" />
 
-            <ComboBox x:Name="CategoryComboBox" Width="314" Margin="5" BorderBrush="#00000000" />
-
-            <Button Content="Filter" Click="FilterByCategory_Click" Margin="5" Foreground="Black" Background="White" Width="121" BorderBrush="#00000000" FontFamily="Cascadia Code" />
+            <Button Content="Filter" Click="FilterByCategory_Click" Margin="5" Foreground="Black" Background="AliceBlue" Width="121" BorderBrush="#00000000" FontFamily="Cascadia Code" />
+            
+            <Button Content="View all items" Click="ViewAllItems_Click" Margin="5" Padding="10" Background="AliceBlue" Width="200" FontFamily="Cascadia Code"></Button>
         </StackPanel>
 
-        <ListView x:Name="PdfListView" Grid.Row="1" Margin="10,10,10,10" Background="White">
+        <ListView x:Name="PdfListView" Grid.Row="1" Margin="10,10,10,10" Background="AliceBlue">
             <ListView.View>
                 <GridView AllowsColumnReorder="True">
-                    <GridViewColumn Header="Name" Width="400">
+                    <GridViewColumn Header="Name" Width="400"></GridViewColumn>
+                    <GridViewColumn Header="Category" DisplayMemberBinding="{Binding Category}" Width="150"></GridViewColumn>
+                    <GridViewColumn Header="Open Pdf" Width="150">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <StackPanel Orientation="Horizontal">
-                                    <Label x:Name="PdfNameLabel" Content="{Binding FileName}"></Label>
-                                    <Button Click="OpenPdf_Click" Content="Open Pdf" Tag="{Binding Id}" x:Name="OpenPdfButton" HorizontalAlignment="Center" VerticalAlignment="Center"></Button>
-                                </StackPanel>
+                                <Button Click="OpenPdf_Click" Content="Open Pdf" Tag="{Binding Id}" x:Name="OpenPdfButton" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                    <Button.Template>
+                                        <ControlTemplate TargetType="Button">
+                                            <Border CornerRadius="10" Background="Salmon" BorderBrush="Salmon" Padding="10">
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"></ContentPresenter>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Button.Template>
+                                </Button>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
-                    <GridViewColumn Header="Category" DisplayMemberBinding="{Binding Category}" Width="150"></GridViewColumn>
                     <GridViewColumn Header="Action" Width="150">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <Button x:Name="DeleteButton" Content="Delete Pdf" Click="DeletePdf_Click" Tag="{Binding Id}">
                                     <Button.Template>
                                         <ControlTemplate TargetType="Button">
-                                            <Border CornerRadius="10" Background="AliceBlue" BorderBrush="AliceBlue" Padding="10">
+                                            <Border CornerRadius="10" Background="Salmon" BorderBrush="Salmon" Padding="10">
                                                 <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"></ContentPresenter>
                                             </Border>
                                         </ControlTemplate>

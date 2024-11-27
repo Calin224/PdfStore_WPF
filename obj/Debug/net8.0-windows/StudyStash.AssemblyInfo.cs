@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("StudyStash")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cdf6ad90d5389d9ae294b7f2269e9fa9878ba92f")]
 [assembly: System.Reflection.AssemblyProductAttribute("StudyStash")]
 [assembly: System.Reflection.AssemblyTitleAttribute("StudyStash")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
